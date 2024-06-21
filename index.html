@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joseph Saleh Portfolio</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <header id="main-header" class="bg-light text-dark py-3">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="logo">
+                    <img src="logo.svg" alt="Joseph Saleh Logo" class="logo-img">
+                </div>
+                <nav>
+                    <ul class="nav">
+                        <li class="nav-item"><a class="nav-link text-dark" href="#intro">About</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="#projects">Projects</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 class="animated-text">Welcome to My Portfolio</h1>
+            <p class="animated-text">Designing with Passion and Precision</p>
+        </div>
+    </section>
+
+    <section id="intro" class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center mb-4">About Me</h2>
+                <p class="lead">Hello, I am Joseph Saleh, a multimedia and graphic design student from Jordan. I specialize in visual communication and have a passion for creating engaging and effective designs. Currently, I am studying multimedia and graphic design, focusing on various aspects of visual communication, including graphic design, web design, and 3D modeling.</p>
+                <p class="lead">My design philosophy revolves around clear communication and impactful visuals. I believe that good design should not only be aesthetically pleasing but also convey a message effectively and intuitively. I approach each project with a meticulous eye for detail and a commitment to understanding the unique needs of my clients.</p>
+                <p class="lead">Thank you for visiting my portfolio. I look forward to the possibility of working together and creating something exceptional.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="projects" class="container py-5">
+        <h2 class="text-center mb-4">Projects</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="project">
+                    <img src="project1.jpg" class="img-fluid" alt="Project 1">
+                    <h3>Project 1</h3>
+                    <p>Description of project 1.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="project">
+                    <img src="project2.jpg" class="img-fluid" alt="Project 2">
+                    <h3>Project 2</h3>
+                    <p>Description of project 2.</p>
+                </div>
+            </div>
+            <!-- Add more projects as needed -->
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="contact" class="container py-5">
+        <h2 class="text-center mb-4">Contact</h2>
+        <form action="https://formspree.io/f/mldrrdnr" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea class="form-control" id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p>&copy; 2024 Joseph Saleh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="back-to-top-menu btn btn-primary rounded-circle">☰
+        <nav class="floating-nav">
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" href="#intro">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="hidden-menu">
+        <div class="menu-content">
+            <span class="close-menu">&times;</span>
+            <nav>
+                <ul class="nav flex-column">
+                    <li class="nav-item"><a class="nav-link" href="#intro">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="back-to-top btn btn-primary rounded-circle">^</div>
+
+    <script>
+        $(document).ready(function(){
+            // Smooth scroll for nav links
+            $('nav a').on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function(){
+                        window.location.hash = hash;
+                    });
+                }
+            });
+
+            // Show/hide back-to-top menu
+            $(window).scroll(function() {
+                var headerHeight = $('#main-header').outerHeight();
+                if ($(this).scrollTop() > headerHeight) {
+                    $('.back-to-top-menu').fadeIn();
+                } else {
+                    $('.back-to-top-menu').fadeOut();
+                }
+                if ($(this).scrollTop() > 300) {
+                    $('.back-to-top').fadeIn();
+                } else {
+                    $('.back-to-top').fadeOut();
+                }
+            });
+
+            // Toggle hidden menu
+            $('.back-to-top-menu').on('click', function() {
+                $('.hidden-menu').toggleClass('active');
+            });
+
+            // Close hidden menu
+            $('.close-menu').on('click', function() {
+                $('.hidden-menu').removeClass('active');
+            });
+
+            // Scroll to top
+            $('.back-to-top').on('click', function() {
+                $('html, body').animate({scrollTop: 0}, 800);
+            });
+        });
+    </script>
+</body>
+</html>
